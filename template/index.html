@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}
+Home |
+{% endblock title %}
+
+{% block body %}
+
+{% load static %}
+
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{% static 'home1.jpg' %}" class="d-block  " alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'home2.jpeg' %}" class="d-block " alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://source.unsplash.com/1400x450?cooking"class="d-block " alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="container-fluid sectiondata">
+  <h1 class="text-center"> About Us </h1>
+   <p class="aboutussection">
+    The must – try dishes at any of Mahi restaurant are the Mini Idlis dipped in sambhar, Medu Vada, Dahi Vada, Masala Dosa, Rava Onion Masala Dosa, Mysore Masala Dosa, Rava Kesari. The nascent coffee aroma emanating from the filter coffee, served in the traditional steel tumbler and saucer is another specialty of Mahi restaurant.
+In an ever-evolving market, Mahi restaurant believes in delighting the customers with new innovations in its menu and this keeps us way ahead of competition.
+<a href="/about">Read more</a>
+  </p>
+</div>
+
+<div class="container-fluid sectiondata">
+  <h1 class="text-center"> How It Work </h1>
+    <div class="row howitrow">
+      <div class="col text-center howitrowtext">
+       1. Choose Your Product 
+      </div>
+      <div class="col text-center bg-info text-light">
+        <i class="fa fa-search howiticon"></i>
+      </div>
+    </div>
+
+    <div class="row howitrow">
+      <div class="col text-center bg-info text-light">
+        <i class="fa fa-cart-arrow-down howiticon"></i>
+      </div>
+      <div class="col text-center howitrowtext">
+       2. Order Your Product 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col text-center howitrowtext">
+       3. Enoy Your Product 
+      </div>
+      <div class="col text-center bg-info text-light">
+       <i class="fa fa-heart howiticon"></i>
+      </div>
+    </div>
+    <div class="row howitrow">
+      <div class="col text-center bg-info text-light">
+        <i class="fa fa-money  howiticon"></i>
+      </div>
+      <div class="col text-center howitrowtext">
+       4. Make Payment at cash counter 
+      </div>
+    </div>  
+  </p>
+</div>
+{% endblock body %}
+

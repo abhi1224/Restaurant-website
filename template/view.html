@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Product | View Details |
+{% endblock title %}
+
+{% block body %}
+
+<form method = "POST" action="/welcome">
+  {% csrf_token %}
+  
+
+<input type="hidden" id="prdqty" name="quantity" value = "1" >
+<input type="hidden" id="prdprice" name="product_price" value = "{{Add_products.price}}">
+<input type="hidden" name="product_name" value = "{{Add_products.name}}" >
+<input type="hidden" name="user_id" value = "{{user.id}}" >
+<input type="hidden" name="user_name" value = "{{user.first_name}}{{user.last_name}}" >
+<input type="hidden" name="product_id" value = "{{Add_products.id}}" >
+  
+
+<div class="container">
+  <div class="row ">
+    <div class="col ">
+      <div class="card" style="width: 25rem;">
+        <img src="{{Add_products.img.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{Add_products.name}}</h5>
+          <p class="card-text">Add your description here.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          
+          <li class="list-group-item" name = 'product_name'>Product Name : {{Add_products.name}}</li>
+          <li class="list-group-item" name = 'product_price'>Product Price :<i class="fa fa-inr "> </i>{{Add_products.price}}</li>
+          <li class="list-group-item">
+            Quantity :
+            <select name = "quantity" onChange="qantityChange(event)">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+<!-- Total amount  card -->
+
+
+    <div class="col row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
+      <div class="col ">
+        <div class="card text-center" style="width: 35rem; padding:20px; ">
+          <h4>The Total Amount : <i class="fa fa-inr "> </i><span id="grandTotal">{{Add_products.price}}</span></h4>
+
+          <hr>
+
+          {% if user.is_authenticated %}
+
+          <div class="card-body">
+            <div class="d-grid gap-2">
+              <button class="btn btn-warning" onclick="submitOrder()" type="submit"><a
+                  style="text-decoration: none; color : black" href='/welcome'><i> Place your order</i> </a></button>
+            </div>
+          </div>
+
+          {% else %}         
+          
+          <div class="card-body">
+            <div class="d-grid gap-2">
+              <button class="btn btn-warning" type="button"><a style="text-decoration: none; color : black"
+                  href='/register'><i>Create your account to Place your order</i> </a></button>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+<!-- Total amount  card end -->
+
+<script>
+  let amt = "{{Add_products.price}}";
+  let qty = 1;
+  let product_id = "{{Add_products.id}}";
+  let user_id = "{{user.id}}";
+
+  function qantityChange(event) {
+    qty = event.target.value;
+    document.getElementById('prdqty').value = qty;
+    document.getElementById('grandTotal').innerHTML = qty * amt;
+  }
+
+</script>
+
+
+{% endblock body %}

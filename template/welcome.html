@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %} 
+{% load static %}
+
+<div class="container text-center" style="margin-top:10%;">
+<img src="{% static 'success.png' %}" height="100" width="100" />
+<h1>Thank You </h1>
+<i>Order ID : {{order.order_id}} </i>
+<br>
+<br>
+<a class="btn btn-xs btn-success" href="/">Home</a>
+<a class="btn btn-xs btn-success" href="/product">Product</a>
+</div>
+</div>
+</div>
+
+{% endblock body %}
